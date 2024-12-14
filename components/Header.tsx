@@ -8,8 +8,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Menu, Github, Layers, Cpu, Gauge, Sparkles, Download, Rocket } from 'lucide-react'
+import { Menu, Github, Layers, Cpu, Gauge, Sparkles, Rocket } from 'lucide-react'
 import { ThemeSwitcher } from "@/components/theme-switcher"
+import { DownloadButton } from "@/components/DownloadButton"
 
 const navigation = [
   { name: "展示图", href: "#showcase", icon: Layers },
@@ -70,10 +71,9 @@ export default function Header() {
               </Link>
             </Button>
             <ThemeSwitcher />
-            <Button className="hidden md:inline-flex group">
-              <Download className="mr-2 h-4 w-4 group-hover:translate-y-0.5 transition-transform duration-300" />
-              立即下载
-            </Button>
+            <div className="hidden md:block">
+              <DownloadButton />
+            </div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" size="icon" className="md:hidden">
@@ -88,9 +88,10 @@ export default function Header() {
                     {item.name}
                   </DropdownMenuItem>
                 ))}
-                <DropdownMenuItem>
-                  <Download className="h-4 w-4 mr-2" />
-                  立即下载
+                <DropdownMenuItem asChild>
+                  <div className="w-full">
+                    <DownloadButton variant="ghost" className="w-full justify-start" />
+                  </div>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

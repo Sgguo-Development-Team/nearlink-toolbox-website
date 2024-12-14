@@ -46,16 +46,6 @@ export default function Footer() {
               ))}
             </div>
           </div>
-
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">快速链接</h3>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">功能</a></li>
-              <li><a href="#tech-stack" className="text-muted-foreground hover:text-foreground transition-colors">技术栈</a></li>
-              <li><a href="#performance" className="text-muted-foreground hover:text-foreground transition-colors">性能优化</a></li>
-              <li><a href="#future-plans" className="text-muted-foreground hover:text-foreground transition-colors">未来规划</a></li>
-            </ul>
-          </div>
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">联系我们</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">

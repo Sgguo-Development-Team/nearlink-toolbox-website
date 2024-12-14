@@ -1,0 +1,16 @@
+{
+  "name": "Nearlink Toolbox - 星闪技术解决方案",
+  "short_name": "星闪工具箱",
+  "description": "专业的串口通信、固件管理、设备调试解决方案。基于 Rust 和 Tauri 构建，提供高性能的跨平台体验。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "categories": ["developer tools", "utilities"],
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "iarc_rating_id": "",
+  "screenshots": [],
+  "orientation": "any"
+}
