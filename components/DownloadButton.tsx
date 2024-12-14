@@ -31,7 +31,7 @@ export function DownloadButton({ variant = "default", size = "default", classNam
     try {
       setIsLoading(true);
       setError(null);
-      const response = await fetch('https://haohanyh-ctcc.gcxstudio.cn/software-updater.json', { mode: 'no-cors' });
+      const response = await fetch('/api/update-info');
 
       if (!response.ok) {
         const errorData = await response.json();

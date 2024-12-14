@@ -15,6 +15,8 @@ import Footer from '@/components/Footer'
 import Showcase from '@/components/Showcase'
 import { AnimateOnView } from '@/components/animations/AnimationWrapper'
 
+export const runtime = "edge";
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
