@@ -63,7 +63,7 @@ const features = [
   },
   {
     icon: Coffee,
-    title: '省��设计',
+    title: '省心设计',
     content: '智能报错提示，烧录进度显示，让操作更有把握'
   },
   {
@@ -79,7 +79,6 @@ export default function Documentation() {
       title="简单到不能再简单"
       description="告别复杂操作，人人都是烧录高手"
       subDescription="无需敲命令、记参数，图形化界面让烧录变得简单直观。智能识别设备、自动配置参数，一键烧录让您立即上手，轻松掌握。"
-      className="bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-background via-primary/5 to-background"
     >
       <div className="grid gap-8">
         <div className="grid gap-6 md:grid-cols-2">

@@ -81,9 +81,8 @@ export default function ProjectGoals() {
       id="project-goals"
       title="项目目标"
       description="打造开源生态，推动技术创新"
-      className="bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-background via-secondary/5 to-background"
     >
-      <div className="grid gap-6 grid-cols-2">
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
         {goals.map((goal, index) => (
           <AnimateOnView
             key={index}

@@ -51,7 +51,6 @@ export default function Performance() {
           <p className="text-sm text-muted-foreground">* 以下数据均在实验室环境下测得，实际使用效果可能因环境差异而不同</p>
         </div>
       }
-      className="bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-background via-primary/5 to-background"
     >
       <div className="grid gap-6 md:grid-cols-2">
         {performanceStrategies.map((category, index) => (

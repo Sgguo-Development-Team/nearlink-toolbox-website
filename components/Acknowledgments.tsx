@@ -34,7 +34,6 @@ export default function Acknowledgments() {
       id="acknowledgments"
       title="致谢"
       description="感谢所有为项目做出贡献的个人和组织"
-      className="bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-background via-secondary/5 to-background"
     >
       <div className="space-y-8">
         <div className="grid gap-6 md:grid-cols-2">

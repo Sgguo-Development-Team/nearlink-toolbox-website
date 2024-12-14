@@ -57,7 +57,6 @@ export default function TechStack() {
       id="tech-stack"
       title="技术架构"
       description="采用现代化技术栈，打造高性能的跨平台应用"
-      className="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background"
     >
       <div className="grid gap-6 md:grid-cols-2">
         {techStack.map((stack, index) => (

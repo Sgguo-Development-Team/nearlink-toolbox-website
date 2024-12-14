@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "星闪工具箱",
+  title: "Nearlink Toolbox",
   description: "一站式串口通信、固件管理、设备调试解决方案",
 };
 
@@ -16,9 +16,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="zh" suppressHydrationWarning>
-      <head />
-      <body className={`${inter.className}`}>
+    <html lang="zh-CN" suppressHydrationWarning>
+      <body className={inter.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

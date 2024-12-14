@@ -34,7 +34,6 @@ export default function Testimonials() {
       id="testimonials"
       title="用户评价"
       description="听听他们怎么说"
-      className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-background via-secondary/5 to-background"
     >
       <div className="grid gap-6 md:grid-cols-3">
         {testimonials.map((testimonial, index) => (
@@ -48,7 +47,6 @@ export default function Testimonials() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <Avatar className="h-12 w-12 group-hover:scale-110 transition-transform duration-300">
-                      <AvatarImage src={`/placeholder.svg?height=40&width=40&text=${testimonial.avatar}`} />
                       <AvatarFallback>{testimonial.avatar}</AvatarFallback>
                     </Avatar>
                     <div className="space-y-1">

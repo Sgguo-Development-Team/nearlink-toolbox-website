@@ -1,3 +1,5 @@
+'use client'
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
@@ -6,34 +8,51 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Menu, Github } from 'lucide-react'
-import { ModeSwitcher } from "@/components/mode-switcher"
+import { Menu, Github, Layers, Cpu, Gauge, Sparkles, Download, Rocket } from 'lucide-react'
+import { ThemeSwitcher } from "@/components/theme-switcher"
 
 const navigation = [
-  { name: "功能", href: "#features" },
-  { name: "技术栈", href: "#tech-stack" },
-  { name: "性能优化", href: "#performance" },
-  { name: "未来规划", href: "#future-plans" }
+  { name: "展示图", href: "#showcase", icon: Layers },
+  { name: "功能", href: "#features", icon: Cpu },
+  { name: "技术栈", href: "#tech-stack", icon: Gauge },
+  { name: "性能优化", href: "#performance", icon: Sparkles },
+  { name: "未来规划", href: "#future-plans", icon: Rocket }
 ]
 
 export default function Header() {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId.replace('#', ''))
+    if (section) {
+      const headerOffset = 80
+      const elementPosition = section.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      })
+    }
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-14 items-center justify-between">
           <div className="flex items-center gap-6">
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="font-bold">星闪工具箱</span>
+            <Link href="/" className="flex items-center space-x-2 group">
+              <Sparkles className="h-5 w-5 text-primary group-hover:rotate-12 transition-transform duration-300" />
+              <span className="font-bold text-xl text-primary">星闪工具箱</span>
             </Link>
             <nav className="hidden md:flex items-center space-x-6">
               {navigation.map((item) => (
-                <a
+                <button
                   key={item.name}
-                  href={item.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => scrollToSection(item.href)}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5 group"
                 >
+                  <item.icon className="h-4 w-4 group-hover:text-primary group-hover:scale-110 transition-all duration-300" />
                   {item.name}
-                </a>
+                </button>
               ))}
             </nav>
           </div>
@@ -44,13 +63,15 @@ export default function Header() {
                 href="https://github.com/your-repo"
                 target="_blank"
                 rel="noreferrer"
+                className="group"
               >
-                <Github className="h-4 w-4" />
+                <Github className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
                 <span className="sr-only">GitHub</span>
               </Link>
             </Button>
-            <ModeSwitcher />
-            <Button className="hidden md:inline-flex">
+            <ThemeSwitcher />
+            <Button className="hidden md:inline-flex group">
+              <Download className="mr-2 h-4 w-4 group-hover:translate-y-0.5 transition-transform duration-300" />
               立即下载
             </Button>
             <DropdownMenu>
@@ -62,12 +83,14 @@ export default function Header() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 {navigation.map((item) => (
-                  <DropdownMenuItem key={item.name}>
-                    <Link href={item.href}>{item.name}</Link>
+                  <DropdownMenuItem key={item.name} onSelect={() => scrollToSection(item.href)}>
+                    <item.icon className="h-4 w-4 mr-2" />
+                    {item.name}
                   </DropdownMenuItem>
                 ))}
                 <DropdownMenuItem>
-                  <Link href="#">立即下载</Link>
+                  <Download className="h-4 w-4 mr-2" />
+                  立即下载
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

@@ -47,7 +47,11 @@ const plans = [
 
 export default function FuturePlans() {
   return (
-    <Section title="未来规划" description="我们正在规划和开发的新功能" className="py-20 bg-muted/50">
+    <Section
+      id="future-plans"
+      title="未来规划"
+      description="我们正在规划和开发的新功能"
+    >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {plans.map((plan, index) => {

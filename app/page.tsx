@@ -18,9 +18,7 @@ import { AnimateOnView } from '@/components/animations/AnimationWrapper'
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <AnimateOnView animation="fade-in" duration="fast">
-        <Header />
-      </AnimateOnView>
+      <Header />
       <main className="flex-grow flex flex-col items-center">
         <div className="w-full mx-auto">
           <AnimateOnView animation="fade-in-up" duration="normal" delay="200">

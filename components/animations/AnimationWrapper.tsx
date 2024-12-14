@@ -72,14 +72,14 @@ export function TextCycle({ words, className = '', interval = 3000 }: TextCycleP
   }, [words.length, interval])
 
   return (
-    <div className="relative h-[1.5em]">
-      <div
+    <span className="inline-block relative min-w-40 text-center">
+      <span
         key={index}
-        className={`absolute inset-0 flex items-center justify-center animate-text-cycle ${className}`}
+        className={`inline-block animate-text-cycle ${className}`}
       >
         {words[index]}
-      </div>
-    </div>
+      </span>
+    </span>
   )
 }
 
