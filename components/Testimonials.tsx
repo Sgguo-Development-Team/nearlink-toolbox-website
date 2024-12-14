@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { AnimateOnView } from '@/components/animations/AnimationWrapper'
 import { Section } from "@/components/ui/section"
 import {  Star, Quote } from 'lucide-react'
