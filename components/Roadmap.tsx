@@ -7,9 +7,9 @@ import { Rocket, Zap, Star, Flag } from 'lucide-react'
 const milestones = [
   {
     version: "v1.x",
-    status: "内测中",
+    status: "公测中",
     date: "2024年10月",
-    title: "内测版本",
+    title: "1.2版本后皆为公测版本",
     icon: Rocket,
     features: [
       "基础功能实现",

@@ -6,24 +6,17 @@ import {  Star, Quote } from 'lucide-react'
 
 const testimonials = [
   {
-    name: "张三",
-    avatar: "ZS",
-    role: "软件工程师",
-    content: "星闪工具箱大大提高了我的工作效率，特别是固件管理功能，非常实用！",
+    name: "沧御",
+    avatar: "C",
+    role: "天工聚创科技有限公司",
+    content: "星闪工具箱，加油！",
     rating: 5
   },
   {
-    name: "李四",
-    avatar: "LS",
+    name: "帅锅",
+    avatar: "S",
     role: "硬件开发者",
     content: "串口调试功能非常强大，让我的调试工作变得轻松多了。",
-    rating: 5
-  },
-  {
-    name: "王五",
-    avatar: "WW",
-    role: "项目经理",
-    content: "固件商店的一键下载功能为我们的团队节省了大量时间，强烈推荐！",
     rating: 5
   }
 ]
