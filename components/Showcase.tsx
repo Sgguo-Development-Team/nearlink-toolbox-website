@@ -153,7 +153,6 @@ export default function Showcase() {
       <div className="mb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {screenshots.map((screenshot, index) => {
-            const colorStyle = generateColorStyle(screenshot.category)
             return (
               <a
                 key={index}
@@ -162,7 +161,7 @@ export default function Showcase() {
                 href={screenshot.image}
                 className="block"
               >
-                <Card className={`overflow-hidden border-0 shadow-xl group ${colorStyle.color} h-full`}>
+                <Card className={`overflow-hidden border-0 shadow-xl grouph-full`}>
                   <div className="relative overflow-hidden aspect-video">
                     <Image
                       src={screenshot.image}
@@ -172,11 +171,11 @@ export default function Showcase() {
                       className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                       priority={index === 0}
                     />
-                    <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 bg-gradient-to-t from-background/90 to-transparent">
-                      <h3 className="text-sm md:text-lg font-bold mb-1 group-hover:text-foreground transition-colors duration-300 text-primary-foreground">
+                    <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+                      <h3 className="text-sm md:text-lg font-bold mb-1  transition-colors duration-300 text-primary">
                         {screenshot.title}
                       </h3>
-                      <p className="text-xs md:text-sm text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300 line-clamp-2">
+                      <p className="text-xs md:text-sm text-primary-foreground transition-colors duration-300 line-clamp-2">
                         {screenshot.description}
                       </p>
                     </div>

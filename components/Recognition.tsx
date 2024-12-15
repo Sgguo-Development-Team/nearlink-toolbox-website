@@ -1,15 +1,15 @@
 'use client'
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { AnimateOnView } from '@/components/animations/AnimationWrapper'
 import { Section } from "@/components/ui/section"
-import { Trophy, Users, Star, Award, Globe, ArrowRight, Medal, Target } from 'lucide-react'
+import { Trophy, Users, Star, Globe, Medal, Target, PartyPopper } from 'lucide-react'
 import { generateColorStyle } from '@/lib/color-style'
 import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
 import Image from "next/image"
-import { useEffect } from "react"
+import { useEffect, useCallback, useRef, useState } from "react"
 import { Fancybox } from "@fancyapps/ui"
+import confetti from 'canvas-confetti'
 import "@fancyapps/ui/dist/fancybox/fancybox.css"
 
 const achievements = [
@@ -53,7 +53,80 @@ const stats = [
 ]
 
 export default function Recognition() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [hasTriggered, setHasTriggered] = useState(false);
+
+  const fireworksEffect = useCallback(() => {
+    if (!sectionRef.current) return;
+
+    const sectionRect = sectionRef.current.getBoundingClientRect();
+    const colors = ['#ff0000', '#ffd700', '#ff69b4', '#00ff00', '#4169e1'];
+
+    // Calculate relative positions based on the section's boundaries
+    const leftOriginX = sectionRect.left / window.innerWidth;
+    const rightOriginX = (sectionRect.right) / window.innerWidth;
+    const originY = Math.min(0.8, (sectionRect.top + sectionRect.height * 0.8) / window.innerHeight);
+
+    const end = Date.now() + 1000;
+
+    (function frame() {
+      confetti({
+        particleCount: 5,
+        angle: 60,
+        spread: 55,
+        origin: { x: leftOriginX, y: originY },
+        colors: colors,
+        startVelocity: 45,
+        gravity: 1.2,
+        drift: -0.1,
+        disableForReducedMotion: true,
+      });
+      confetti({
+        particleCount: 5,
+        angle: 120,
+        spread: 55,
+        origin: { x: rightOriginX, y: originY },
+        colors: colors,
+        startVelocity: 45,
+        gravity: 1.2,
+        drift: 0.1,
+        disableForReducedMotion: true,
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }());
+  }, []);
+
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasTriggered) {
+            setHasTriggered(true);
+            setTimeout(() => {
+              fireworksEffect();
+            }, 500);
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the component is visible
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [fireworksEffect, hasTriggered]);
+
+  useEffect(() => {
+    // Initialize Fancybox
     Fancybox.bind("[data-fancybox]", {
       animated: true,
       dragToClose: false,
@@ -78,13 +151,29 @@ export default function Recognition() {
 
   return (
     <Section
+      ref={sectionRef}
       id="recognition"
-      title="华为本家认可"
+      title={
+        <div className="flex items-center justify-center gap-3 text-center">
+          <PartyPopper
+            className="h-8 w-8 md:h-10 md:w-10 text-primary animate-bounce cursor-pointer"
+            onClick={fireworksEffect}
+          />
+          <span>华为本家认可</span>
+          <PartyPopper
+            className="h-8 w-8 md:h-10 md:w-10 text-primary animate-bounce cursor-pointer"
+            onClick={fireworksEffect}
+          />
+        </div>
+      }
       description="社区赋能星闪"
       subDescription={
         <span>
           星闪工具箱凭借其在开源社区的突出贡献和技术创新，获得华为的认可。在2024年华为开发者年度盛典上，项目主理人
-          <span className="text-primary font-semibold mx-1">林孟嘉</span>
+          <span className="text-primary font-semibold mx-1 relative group">
+            林孟嘉
+            <span className="absolute -inset-1 bg-primary/10 scale-x-0 group-hover:scale-x-100 transition-transform rounded" />
+          </span>
           先生代表团队领取了卓越社区价值贡献奖，这是对我们持续努力的肯定。
         </span>
       }
@@ -109,17 +198,16 @@ export default function Recognition() {
                   className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/50 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-lg bg-background/50 backdrop-blur-sm">
+                    <div className="p-3 rounded-lg bg-background backdrop-blur-sm">
                       <Trophy className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">
+                      <h3 className="text-xl md:text-2xl font-bold text-primary mb-1">
                         华为开发者年度盛典
                       </h3>
-                      <p className="text-sm md:text-base text-muted-foreground">
+                      <p className="text-sm md:text-base text-primary-foreground">
                         卓越社区价值贡献奖颁奖典礼
                       </p>
                     </div>

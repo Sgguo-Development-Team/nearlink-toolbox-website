@@ -65,7 +65,8 @@ export default function Hero() {
           </AnimateOnView>
         </div>
       }
-      className="relative py-20 md:py-32 overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-background to-background">
+      className="relative py-20 md:py-32 overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-background to-background bg-fixed"
+    >
       <div className="container mx-auto px-4">
         {/* 特性卡片 */}
         <div className="grid md:grid-cols-3 gap-6 mb-16">

@@ -13,7 +13,7 @@ export function ThemeSwitcher() {
       size="icon"
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
-      <span className="relative h-5 w-5">
+      <span className="relative h-4 w-4 group-hover:scale-110 transition-transform duration-300">
         <Sun className="absolute inset-0 rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0" />
         <Moon className="absolute inset-0 rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100" />
       </span>
