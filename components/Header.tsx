@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Menu, Github, Layers, Cpu, Sparkles, Rocket, Trophy } from 'lucide-react'
-import { ThemeSwitcher } from "@/components/theme-switcher"
+import { ThemeSwitcher } from "@/components/ThemeSwitcher"
 import { DownloadButton } from "@/components/DownloadButton"
 
 const navigation = [
