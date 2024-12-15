@@ -61,12 +61,7 @@ export default function Features() {
   return (
     <Section
       id="features"
-      title={
-        <div className="flex items-center gap-2">
-          <Cpu className="h-8 w-8 text-primary animate-pulse" />
-          <span>主要功能</span>
-        </div>
-      }
+      title="主要功能"
       description="一站式解决方案，让开发更轻松"
     >
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

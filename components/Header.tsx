@@ -8,16 +8,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Menu, Github, Layers, Cpu, Gauge, Sparkles, Rocket } from 'lucide-react'
+import { Menu, Github, Layers, Cpu, Sparkles, Rocket, Trophy } from 'lucide-react'
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import { DownloadButton } from "@/components/DownloadButton"
 
 const navigation = [
+  { name: "获奖经历", href: "#recognition", icon: Trophy },
   { name: "展示图", href: "#showcase", icon: Layers },
   { name: "功能", href: "#features", icon: Cpu },
-  { name: "技术栈", href: "#tech-stack", icon: Gauge },
-  { name: "性能优化", href: "#performance", icon: Sparkles },
-  { name: "未来规划", href: "#future-plans", icon: Rocket }
+  { name: "发展路线", href: "#roadmap", icon: Rocket }
 ]
 
 export default function Header() {
@@ -61,7 +60,7 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <Button asChild variant="ghost" size="icon" className="hidden md:inline-flex">
               <Link
-                href="https://github.com/your-repo"
+                href="https://github.com/MiraHikari/nearlink-firmwares"
                 target="_blank"
                 rel="noreferrer"
                 className="group"

@@ -1,12 +1,12 @@
 'use client'
 
-import { Button } from "@/components/ui/button"
-import { ChevronRight, Cpu, Zap, Download } from 'lucide-react'
+import { Cpu, Zap, Download } from 'lucide-react'
 import { TextCycle, AnimateOnView } from '@/components/animations/AnimationWrapper'
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Section } from "@/components/ui/section"
 import { Pacifico } from 'next/font/google'
 import { DownloadButton } from "@/components/DownloadButton"
+import { generateColorStyle } from '@/lib/color-style'
 
 const pacifico = Pacifico({
   weight: '400',
@@ -16,6 +16,27 @@ const pacifico = Pacifico({
 })
 
 const techWords = ['串口通信', '固件管理', '设备调试', '共享社区能力', '国产化软硬件']
+
+const features = [
+  {
+    icon: Cpu,
+    title: '高性能',
+    description: '基于 Rust 和 Tauri，提供卓越的性能和效率',
+    category: 'performance'
+  },
+  {
+    icon: Zap,
+    title: '多功能',
+    description: '集成串口通信、固件管理、设备调试等多功能',
+    category: 'features'
+  },
+  {
+    icon: Download,
+    title: '便捷使用',
+    description: '一键下载、智能管理，让开发更轻松',
+    category: 'usability'
+  }
+]
 
 export default function Hero() {
   return (
@@ -48,56 +69,34 @@ export default function Hero() {
       <div className="container mx-auto px-4">
         {/* 特性卡片 */}
         <div className="grid md:grid-cols-3 gap-6 mb-16">
-          <AnimateOnView animation="fade-in-left" duration="normal" delay="600">
-            <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 min-h-[200px]">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center mb-4
-                  group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
-                  <Cpu className="h-6 w-6 group-hover:text-primary transition-colors duration-300" />
-                </div>
-                <CardTitle className="group-hover:text-primary transition-colors duration-300">
-                  高性能
-                </CardTitle>
-                <CardDescription>
-                  基于 Rust 和 Tauri，提供卓越的性能和效率
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          </AnimateOnView>
+          {features.map((feature, index) => {
+            const colorStyle = generateColorStyle(feature.category)
+            const animations = ['fade-in-left', 'fade-in-up', 'fade-in-right']
+            const delays = ['600', '700', '800']
 
-          <AnimateOnView animation="fade-in-up" duration="normal" delay="700">
-            <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 min-h-[200px]">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center mb-4
-                  group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
-                  <Zap className="h-6 w-6 group-hover:text-primary transition-colors duration-300" />
-                </div>
-                <CardTitle className="group-hover:text-primary transition-colors duration-300">
-                  多功能
-                </CardTitle>
-                <CardDescription>
-                  集成串口通信、固件管理、设备调试等多功能
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          </AnimateOnView>
-
-          <AnimateOnView animation="fade-in-right" duration="normal" delay="800">
-            <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 min-h-[200px]">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center mb-4
-                  group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
-                  <Download className="h-6 w-6 group-hover:text-primary transition-colors duration-300" />
-                </div>
-                <CardTitle className="group-hover:text-primary transition-colors duration-300">
-                  便捷使用
-                </CardTitle>
-                <CardDescription>
-                  一键下载、智能管理，让开发更轻松
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          </AnimateOnView>
+            return (
+              <AnimateOnView
+                key={feature.title}
+                animation={animations[index] as 'fade-in-left' | 'fade-in-up' | 'fade-in-right'}
+                duration="normal"
+                delay={delays[index]}
+              >
+                <Card className={`h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 min-h-[200px] group ${colorStyle.color}`}>
+                  <CardHeader className="relative z-10">
+                    <div className="w-12 h-12 rounded-full bg-background/50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <feature.icon className="h-6 w-6" />
+                    </div>
+                    <CardTitle className="group-hover:text-foreground transition-colors duration-300">
+                      {feature.title}
+                    </CardTitle>
+                    <CardDescription className="group-hover:text-foreground/70 transition-colors duration-300">
+                      {feature.description}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </AnimateOnView>
+            )
+          })}
         </div>
 
         {/* 按钮组 */}
@@ -105,16 +104,6 @@ export default function Hero() {
           <AnimateOnView animation="fade-in-up" duration="normal" delay="900">
             <DownloadButton size="lg" className="group relative overflow-hidden">
             </DownloadButton>
-          </AnimateOnView>
-
-          <AnimateOnView animation="fade-in-up" duration="normal" delay="1000">
-            <Button variant="outline" size="lg" className="group relative overflow-hidden">
-              <span className="relative z-10 flex items-center">
-                了解更多
-                <ChevronRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </span>
-              <span className="absolute inset-0 bg-primary/5 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-            </Button>
           </AnimateOnView>
         </div>
       </div>

@@ -7,48 +7,53 @@ import Performance from '@/components/Performance'
 import Statistics from '@/components/Statistics'
 import Testimonials from '@/components/Testimonials'
 import Acknowledgments from '@/components/Acknowledgments'
-import FuturePlans from '@/components/FuturePlans'
 import Roadmap from '@/components/Roadmap'
 import Integration from '@/components/Integration'
 import Documentation from '@/components/Documentation'
 import Footer from '@/components/Footer'
 import Showcase from '@/components/Showcase'
+import Collaboration from '@/components/Collaboration'
+import Recognition from '@/components/Recognition'
 import { AnimateOnView } from '@/components/animations/AnimationWrapper'
-
-export const runtime = "edge";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
+    <div className="relative">
       <Header />
-      <main className="flex-grow flex flex-col items-center">
-        <div className="w-full mx-auto">
-          <AnimateOnView animation="fade-in-up" duration="normal" delay="200">
+      <main className="relative">
+        <div className="space-y-8">
+          <AnimateOnView animation="fade-in" duration="normal">
             <Hero />
           </AnimateOnView>
-          <AnimateOnView animation="fade-in-up" duration="normal" delay="400">
-            <Showcase />
-          </AnimateOnView>
-          <AnimateOnView animation="fade-in-left" duration="normal">
-            <Features />
-          </AnimateOnView>
-          <AnimateOnView animation="fade-in-right" duration="normal">
-            <ProjectGoals />
-          </AnimateOnView>
-          <AnimateOnView animation="fade-in-left" duration="normal">
-            <TechStack />
-          </AnimateOnView>
-          <AnimateOnView animation="scale-in" duration="normal">
-            <Performance />
+          <AnimateOnView animation="fade-in-up" duration="normal" delay="200">
+            <Recognition />
           </AnimateOnView>
           <AnimateOnView animation="fade-in-up" duration="normal">
-            <Statistics />
+            <Showcase />
+          </AnimateOnView>
+          <AnimateOnView animation="fade-in" duration="normal">
+            <Collaboration />
+          </AnimateOnView>
+          <AnimateOnView animation="fade-in-up" duration="normal">
+            <Features />
           </AnimateOnView>
           <AnimateOnView animation="fade-in-left" duration="normal">
             <Integration />
           </AnimateOnView>
           <AnimateOnView animation="fade-in-right" duration="normal">
             <Documentation />
+          </AnimateOnView>
+          <AnimateOnView animation="fade-in-up" duration="normal">
+            <ProjectGoals />
+          </AnimateOnView>
+          <AnimateOnView animation="fade-in-left" duration="normal">
+            <TechStack />
+          </AnimateOnView>
+          <AnimateOnView animation="fade-in-right" duration="normal">
+            <Performance />
+          </AnimateOnView>
+          <AnimateOnView animation="fade-in-up" duration="normal">
+            <Statistics />
           </AnimateOnView>
           <AnimateOnView animation="fade-in-up" duration="normal">
             <Roadmap />
@@ -58,9 +63,6 @@ export default function Home() {
           </AnimateOnView>
           <AnimateOnView animation="fade-in-right" duration="normal">
             <Acknowledgments />
-          </AnimateOnView>
-          <AnimateOnView animation="fade-in-up" duration="normal">
-            <FuturePlans />
           </AnimateOnView>
         </div>
       </main>

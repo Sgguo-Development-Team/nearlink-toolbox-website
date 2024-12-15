@@ -11,7 +11,7 @@ const performanceStrategies = [
     metrics: [
       { value: '12%', label: '包体积减少', note: '基于v1.6版本' },
       { value: '200ms', label: '首屏加载', note: '理想网络环境' },
-      { value: '120FPS+', label: '流畅动画', note: '标准硬件配置' },
+      { value: '100%', label: '流畅动画', note: '标准硬件配置' },
       { value: '50%', label: '代码分割', note: '按路由分割' }
     ],
     strategies: [
@@ -28,7 +28,7 @@ const performanceStrategies = [
     metrics: [
       { value: '4MB', label: '内存占用', note: '空载状态' },
       { value: '12ms', label: '响应延迟', note: '本地测试环境' },
-      { value: '99.9%', label: '系统稳定', note: '实验室环境' },
+      { value: '≈ 99%', label: '系统稳定', note: '实验室环境' },
       { value: '10K+', label: '并发支持', note: '理想负载下' }
     ],
     strategies: [

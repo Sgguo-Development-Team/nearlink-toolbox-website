@@ -65,63 +65,73 @@ export default function Roadmap() {
       id="roadmap"
       title="发展路线"
       description="探索我们的发展计划和未来愿景"
-      className="bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-background via-secondary/5 to-background"
     >
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {milestones.map((milestone, index) => (
-          <AnimateOnView
-            key={index}
-            animation="fade-in"
-            delay={`${(index + 2) * 100}`}
-          >
-            <Card className="relative overflow-hidden group hover:shadow-lg transition-all duration-300">
-              <div className="absolute -right-8 -top-8 w-32 h-32 bg-secondary/5 rounded-full blur-3xl group-hover:bg-secondary/10 transition-all duration-300" />
-              <CardHeader>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <milestone.icon className="w-6 h-6 text-foreground" />
-                  </div>
-                  <div>
-                    <div className="flex items-center space-x-2">
-                      <CardTitle>{milestone.version}</CardTitle>
-                      <Badge
-                        variant={
-                          milestone.status === "内测中"
-                            ? "default"
-                            : milestone.status === "计划中"
-                            ? "secondary"
-                            : "outline"
-                        }
-                        className="font-serif"
-                      >
-                        {milestone.status}
-                      </Badge>
+      <div className="relative">
+        {/* Timeline line */}
+        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
+
+        <div className="space-y-8">
+          {milestones.map((milestone, index) => (
+            <AnimateOnView
+              key={index}
+              animation="fade-in"
+              delay={`${(index + 2) * 100}`}
+            >
+              <div className="relative pl-20">
+                {/* Timeline dot */}
+                <div className="absolute left-7 -translate-x-1/2 w-3 h-3 rounded-full bg-primary ring-4 ring-background" />
+
+                <Card className="group hover:shadow-lg transition-all duration-300 bg-card/50 backdrop-blur-xl border-primary/10">
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4">
+                        <div className="w-12 h-12 rounded-lg bg-background/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <milestone.icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <div className="flex items-center space-x-2">
+                            <CardTitle>{milestone.version}</CardTitle>
+                            <Badge
+                              variant={
+                                milestone.status === "公测中"
+                                  ? "default"
+                                  : milestone.status === "计划中"
+                                  ? "secondary"
+                                  : "outline"
+                              }
+                              className="font-serif"
+                            >
+                              {milestone.status}
+                            </Badge>
+                          </div>
+                          <p className="text-sm text-muted-foreground">{milestone.date}</p>
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-sm text-muted-foreground">{milestone.date}</p>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4 relative">
-                <h3 className="font-semibold group-hover:text-primary transition-colors duration-300">
-                  {milestone.title}
-                </h3>
-                <div className="space-y-2">
-                  {milestone.features.map((feature, featureIndex) => (
-                    <div
-                      key={featureIndex}
-                      className="flex items-center space-x-2 group/item hover:translate-x-1 transition-transform duration-200"
-                    >
-                      <div className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 group-hover/item:bg-primary/50 transition-colors duration-200" />
-                      <span className="text-sm text-muted-foreground group-hover/item:text-foreground transition-colors duration-200">
-                        {feature}
-                      </span>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <h3 className="font-semibold text-lg group-hover:text-primary transition-colors duration-300">
+                      {milestone.title}
+                    </h3>
+                    <div className="grid grid-cols-2 gap-3">
+                      {milestone.features.map((feature, featureIndex) => (
+                        <div
+                          key={featureIndex}
+                          className="flex items-center space-x-2 p-3 rounded-lg bg-background/50 group-hover:bg-primary/5 transition-all duration-300"
+                        >
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary/50" />
+                          <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </AnimateOnView>
-        ))}
+                  </CardContent>
+                </Card>
+              </div>
+            </AnimateOnView>
+          ))}
+        </div>
       </div>
     </Section>
   )

@@ -29,7 +29,7 @@ const chartConfig = {
     icon: Download,
   },
   users: {
-    label: "活跃用��",
+    label: "活跃用户",
     color: "hsl(var(--chart-2))",
     icon: Users,
   },
@@ -55,12 +55,7 @@ export default function Statistics() {
   return (
     <Section
       id="statistics"
-      title={
-        <div className="flex items-center gap-2">
-          <BarChart3 className="h-8 w-8 text-primary" />
-          <span>使用数据统计</span>
-        </div>
-      }
+      title="使用数据"
       description="近6个月使用数据统计"
     >
       <div className="container mx-auto px-4">
