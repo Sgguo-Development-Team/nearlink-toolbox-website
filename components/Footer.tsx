@@ -35,7 +35,8 @@ export default function Footer() {
           <p className="mb-4">
             Built & Designed by <a href="https://www.gcxstudio.cn" className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent font-bold hover:from-pink-600 hover:to-purple-400 transition duration-500">
               MiraHikari
-            </a> with 👌
+            </a> with 👌<br></br>
+域名备案：<a href="https://beian.miit.gov.cn/#/Integrated/index" className="hover:text-foreground transition-colors">闽ICP备2026003001号-1</a> <a href="https://beian.mps.gov.cn/#/query/webSearch?code=35010302000932" className="hover:text-foreground transition-colors">公安网监闽公网安备35010302000932号</a>
           </p>
           © 2024-PRESENT <a href="https://www.sgguo.com" className="hover:text-foreground transition-colors">Sgguo Development Team</a>. 保留所有权利。
         </div>
