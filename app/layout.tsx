@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/ThemeProvider"
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Nearlink Toolbox - 星闪技术解决方案",
+  title: "芯异构（福州）信息科技有限公司产品 - Nearlink Toolbox - 星闪技术解决方案",
   description: "专业的串口通信、固件管理、设备调试解决方案。基于 Rust 和 Tauri 构建，提供高性能的跨平台体验。华为鸿蒙星闪技术解决方案。华为开发者盛典获奖项目。",
   keywords: [
     "串口通信",
