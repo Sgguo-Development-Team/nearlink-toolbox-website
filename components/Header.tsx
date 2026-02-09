@@ -41,7 +41,7 @@ export default function Header() {
           <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center space-x-2 group">
               <Sparkles className="h-5 w-5 text-primary group-hover:rotate-12 transition-transform duration-300" />
-              <span className="font-bold text-xl text-primary">星闪工具箱</span>
+              <span className="font-bold text-xl text-primary">芯异构（福州）信息科技有限公司产品 - 星闪工具箱</span>
             </Link>
             <nav className="hidden md:flex items-center space-x-6">
               {navigation.map((item) => (
